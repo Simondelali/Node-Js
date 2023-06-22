@@ -6,4 +6,13 @@ fs.readFile('readme.txt', 'utf8', function (err, data) {
         if (err) throw err;
         console.log('Saved!');
     });
-}); 
+});
+
+fs.mkdir('stuff', function () {
+    fs.readFile('readme.txt', 'utf8', function (err, data) {
+        fs.writeFile('./stuff/writeme.txt', data, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+        });
+    })
+});
